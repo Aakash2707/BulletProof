@@ -35,12 +35,12 @@ public class SwipeManager : MonoBehaviour
                     
                 }
 
-            //Detects swipe after finger is released
-            // if (touch.phase == TouchPhase.Ended)
-            //     {
-            //         fingerDown = touch.position;
-            //         checkSwipe();
-            //     }
+            if (touch.phase == TouchPhase.Ended)
+                {
+                    fingerDown = touch.position;
+                    leftMove = false;
+                    rightMove = false;
+                }
 
         }
     }
@@ -51,13 +51,19 @@ public class SwipeManager : MonoBehaviour
             //Debug.Log("Horizontal");
             if (fingerDown.x - fingerUp.x > 0)//Right swipe
             {
-                //rightMove = true;
-                OnSwipeRight();
+                rightMove = true;
+                leftMove = false;
+               
             }
             else if (fingerDown.x - fingerUp.x < 0)//Left swipe
             {
-                //leftMove = true;
-                OnSwipeLeft();
+                leftMove = true;
+                rightMove = false;
+               
+            }
+            else{
+                rightMove = false;
+                leftMove = false;
             }
             fingerUp = fingerDown;
         }
@@ -66,25 +72,5 @@ public class SwipeManager : MonoBehaviour
     float horizontalValMove()
     {
         return Mathf.Abs(fingerDown.x - fingerUp.x);
-    }
-    void OnSwipeRight(){
-        StartCoroutine(MoveSwipeRight());
-    }
-    void OnSwipeLeft(){
-        StartCoroutine(MoveSwipeLeft());
-    }
-
-    public IEnumerator MoveSwipeRight()
-    {
-        rightMove = true;
-        yield return new WaitForSeconds(0.3f);
-        rightMove = false;
-    }
-
-    public IEnumerator MoveSwipeLeft()
-    {
-        leftMove = true;
-        yield return new WaitForSeconds(0.3f);
-        leftMove = false;
     }
 }

@@ -44,6 +44,6 @@ public class SpaceShipController : MonoBehaviour
     }
 
     public void shoot() {
-        Instantiate(laser, laserPoint.position, Quaternion.identity);
+        Instantiate(laser, laserPoint.position, laserPoint.transform.rotation);
     }
 }

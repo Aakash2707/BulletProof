@@ -2,11 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LaserShoot : MonoBehaviour
+public class MeteorMove : MonoBehaviour
 {
     public float speed;
     public float destroyTime;
-    public Rigidbody2D rb;
     void Start()
     {
         Invoke("destroy", destroyTime);
@@ -15,19 +14,16 @@ public class LaserShoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Shoot();
+        move();
     }
 
-    void Shoot(){
-        // Vector2 temp = transform.localPosition;
-        // temp.y += speed * Time.deltaTime;
-        // transform.position = temp;
-        rb.AddForce(transform.up * 5);
-        
-    }
+    void move(){
 
+        Vector2 temp = transform.position;
+        temp.y -= speed * Time.deltaTime;
+        transform.position = temp;
+    }
     void destroy(){
         Destroy(gameObject);
     }
-
 }
