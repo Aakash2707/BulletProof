@@ -9,9 +9,10 @@ public class MeteorSpawner : MonoBehaviour
     public int meteorCount;
     public int meteorNo;
     public int difficulty;
-    public float spawnWaitTime, startWaitTime, waveWaitTime;
+    public float spawnWaitTime, startWaitTime, waveWaitTime, laserSpeed, originalSpeed;
     public int meteor2Probabilty, meteor3Probabilty;
     public int rand, rand2;
+    public float rand3;
     void Start()
     {
         StartCoroutine(SpawnMeteors());
@@ -27,6 +28,9 @@ public class MeteorSpawner : MonoBehaviour
             for(int i = 0; i < meteorCount; i++){
                 rand = UnityEngine.Random.Range(1,11);
                 rand2 = UnityEngine.Random.Range(1,11);
+                rand3 = UnityEngine.Random.Range(1,4);
+                originalSpeed = laserSpeed;
+                laserSpeed += rand3;
                 if(difficulty == 1){
                     meteorCount = UnityEngine.Random.Range(3,6);
                     meteorNo = 0;
@@ -56,6 +60,7 @@ public class MeteorSpawner : MonoBehaviour
                 }
                 Vector2 spawnPosition = new Vector2(Random.Range(-spawnValues.x, spawnValues.x), spawnValues.y);
                 Instantiate(meteor[meteorNo],spawnPosition,transform.rotation);
+                laserSpeed = originalSpeed;
                 yield return new WaitForSeconds(spawnWaitTime);
             }
             

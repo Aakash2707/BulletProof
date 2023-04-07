@@ -195,10 +195,12 @@ MonoBehaviour:
   spawnWaitTime: 0.2
   startWaitTime: 2
   waveWaitTime: 3
+  laserSpeed: 5
   meteor2Probabilty: 0
   meteor3Probabilty: 0
   rand: 0
   rand2: 0
+  rand3: 0
 --- !u!4 &303706395
 Transform:
   m_ObjectHideFlags: 0
@@ -707,7 +709,7 @@ MonoBehaviour:
   delay: 1
   delaySP: 0.1
   laser: {fileID: 3981775802179059128, guid: 26ccc431dedc8db47a4891041b0c6fb8, type: 3}
-  Shoot: {fileID: 0}
+  Shoot: {fileID: 2032461737}
   laserPoint: {fileID: 1335694345}
   multiLaserShot: 0
   spreadDamage: 0
@@ -953,7 +955,7 @@ GameObject:
   - component: {fileID: 2032461738}
   - component: {fileID: 2032461737}
   m_Layer: 5
-  m_Name: ShooTBUtton
+  m_Name: ShootButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

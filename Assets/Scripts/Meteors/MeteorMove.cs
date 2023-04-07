@@ -6,6 +6,12 @@ public class MeteorMove : MonoBehaviour
 {
     public float speed;
     public float destroyTime;
+    public MeteorSpawner ms;
+
+    void Awake(){
+        ms = GameObject.FindGameObjectWithTag("MeteorManger").GetComponent<MeteorSpawner>();
+        speed = ms.laserSpeed;
+    }
     void Start()
     {
         Invoke("destroy", destroyTime);
