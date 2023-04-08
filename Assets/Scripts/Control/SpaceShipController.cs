@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class SpaceShipController : MonoBehaviour
 {
@@ -13,9 +14,12 @@ public class SpaceShipController : MonoBehaviour
     public GameObject laser;
     public Button Shoot;                
     public Transform laserPoint;
-    public bool multiLaserShot, spreadDamage;
+    public bool multiLaserShot, spreadDamage, forceField;
+    public GameObject forcefield;
     public Quaternion rotation;
     public Quaternion point1, point2, point3, point4;
+    public int life = 3;
+    public float powerUpTime;
     void Start()
     {
         rotation = laserPoint.transform.rotation;
@@ -26,6 +30,12 @@ public class SpaceShipController : MonoBehaviour
     {
         moveSpaceShip();
         rotation = laserPoint.transform.rotation;
+        if(forceField){
+            forcefield.SetActive(true);
+        }
+        else{
+            forcefield.SetActive(false);
+        }
         
     }
 
@@ -76,5 +86,30 @@ public class SpaceShipController : MonoBehaviour
         Shoot.interactable = false;
         yield return new WaitForSeconds(delay);
         Shoot.interactable = true;
+    }
+
+    IEnumerator MultiShot(){
+        multiLaserShot = true;
+        yield return new WaitForSeconds(powerUpTime);
+        multiLaserShot = false;
+    }
+    IEnumerator SpreadShot(){
+        spreadDamage = true;
+        yield return new WaitForSeconds(powerUpTime);
+        spreadDamage = false;
+    }
+    IEnumerator ForceField(){
+        forceField = true;
+        yield return new WaitForSeconds(powerUpTime);
+        forceField = false;
+    }
+    public void MultiShot1(){
+        StartCoroutine(MultiShot());
+    }
+    public void SpreadShot1(){
+        StartCoroutine(SpreadShot());
+    }
+    public void ForceField1(){
+        StartCoroutine(ForceField());
     }
 }

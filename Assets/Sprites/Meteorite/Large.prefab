@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 54739889425768244}
   - component: {fileID: 2054158402984750829}
   - component: {fileID: -5577914721291632349}
+  - component: {fileID: -8469873795837782037}
   m_Layer: 0
   m_Name: Large
   m_TagString: Untagged
@@ -119,3 +120,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 4
   destroyTime: 4
+  ms: {fileID: 0}
+  ss: {fileID: 0}
+  ssc: {fileID: 0}
+  destroyNo: 2
+  largeMeteor: 1
+  destroy1: {fileID: 0}
+  destroy2: {fileID: 700169566489564236, guid: 3388e167603afa644ab9620d99fe36b2, type: 3}
+--- !u!61 &-8469873795837782037
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1449589134219995295}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 6, y: 10}
+    newSize: {x: 6, y: 10}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 6, y: 10}
+  m_EdgeRadius: 0

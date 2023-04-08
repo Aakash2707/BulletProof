@@ -11,7 +11,7 @@ public class LaserShoot : MonoBehaviour
 
     void Awake() {
         bc.enabled = false;
-        Invoke("EnableColider", 0.1f);
+        Invoke("EnableCollider", 0.2f);
     }
     void Start()
     {
@@ -36,7 +36,7 @@ public class LaserShoot : MonoBehaviour
         Destroy(gameObject);
     }
     void EnableCollider(){
-        bc.enabled = true;
+        bc.enabled = true; 
     }
 
 }
