@@ -145,6 +145,7 @@ MonoBehaviour:
   forceField: 0
   powerUpTime: 0
   ssc: {fileID: 0}
+  PU: {fileID: 0}
 --- !u!61 &72384286871332410
 BoxCollider2D:
   m_ObjectHideFlags: 0

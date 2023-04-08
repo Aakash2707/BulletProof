@@ -70,7 +70,7 @@ public class ScoreScript : MonoBehaviour
     }
 
     public IEnumerator Dead(){
-        
+    ssc.death.Play();
     Instantiate(destroy,ssc.gameObject.transform.position, ssc.gameObject.transform.rotation);
     Destroy(ssc.gameObject);
     yield return new WaitForSeconds(2.5f);

@@ -10,9 +10,11 @@ public class PowerUpsScript : MonoBehaviour
     public int rand, powerUpNo;
     bool test = false;
     public Vector2 spawnValues;
+    public AudioSource PU;
 
     void Awake(){
         ss = GameObject.FindGameObjectWithTag("Score").GetComponent<ScoreScript>();
+        PU = gameObject.GetComponent<AudioSource>();
     }
     void Start()
     {
@@ -62,5 +64,9 @@ public class PowerUpsScript : MonoBehaviour
             waitTime = UnityEngine.Random.Range(13,17);
             yield return new WaitForSeconds(waitTime);
         }
+    }
+
+    public void music(){
+        PU.Play();
     }
 }

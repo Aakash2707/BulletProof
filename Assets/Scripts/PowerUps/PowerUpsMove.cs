@@ -9,9 +9,12 @@ public class PowerUpsMove : MonoBehaviour
     public bool multiShot, spreadShot, forceField;
     public float powerUpTime;
     public SpaceShipController ssc;
+    public PowerUpsScript ps;
+
     
     void Awake(){
         ssc = GameObject.FindGameObjectWithTag("Player").GetComponent<SpaceShipController>();
+        ps = GameObject.FindGameObjectWithTag("PowerupManager").GetComponent<PowerUpsScript>();
     }
     void Start()
     {
@@ -29,6 +32,7 @@ public class PowerUpsMove : MonoBehaviour
             destroy();
         }
         if(other.gameObject.tag == "Player" || other.gameObject.tag == "Laser"){
+            ps.music();
             if(multiShot){
                 ssc.MultiShot1();
             }
