@@ -25,10 +25,7 @@ public class LaserShoot : MonoBehaviour
     }
 
     void Shoot(){
-        // Vector2 temp = transform.localPosition;
-        // temp.y += speed * Time.deltaTime;
-        // transform.position = temp;
-        rb.AddForce(transform.up * 3);
+        rb.AddForce(transform.up * 3000 * Time.deltaTime);
         
     }
 

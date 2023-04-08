@@ -20,6 +20,11 @@ public class SpaceShipController : MonoBehaviour
     public Quaternion point1, point2, point3, point4;
     public int life = 3;
     public float powerUpTime;
+    public AudioSource death;
+
+    void Awake(){
+        death = gameObject.GetComponent<AudioSource>();
+    }
     void Start()
     {
         rotation = laserPoint.transform.rotation;
