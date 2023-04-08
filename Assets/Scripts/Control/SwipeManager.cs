@@ -11,9 +11,10 @@ public class SwipeManager : MonoBehaviour
 
     public bool rightMove = false;
     public bool leftMove = false;
-    void Start()
+    public AudioSource swipe;
+    void Awake()
     {
-        
+        swipe = gameObject.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -51,12 +52,14 @@ public class SwipeManager : MonoBehaviour
             //Debug.Log("Horizontal");
             if (fingerDown.x - fingerUp.x > 0)//Right swipe
             {
+                //swipe.Play();
                 rightMove = true;
                 leftMove = false;
                
             }
             else if (fingerDown.x - fingerUp.x < 0)//Left swipe
             {
+                //swipe.Play();
                 leftMove = true;
                 rightMove = false;
                

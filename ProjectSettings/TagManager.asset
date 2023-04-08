@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - MeteorManger
+  - Score
+  - ScoreDetector
+  - Laser
+  - ForceField
+  - PowerupManager
   layers:
   - Default
   - TransparentFX
